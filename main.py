@@ -4,36 +4,43 @@ import os
 import time
 import csv
 
-# os.system("TASKKILL /f /IM CHROME.EXE")
+os.system("TASKKILL /f /IM CHROME.EXE")
 
 driver = webdriver.Chrome()
 driver.implicitly_wait(30)
 
-def openAmericanasSite():
+def open_americanas_site():
     driver.get("https://www.americanas.com.br/")
 
 
-def searchIphone():
+def search_iphone():
     driver.find_element(By.XPATH, ("//input[@aria-label='Pesquisar']")).send_keys("iphone")
     driver.find_element(By.XPATH, ("//button[@aria-label='pesquisar']")).click()
 
-def returnTitles():
-   titles = driver.find_elements(By.XPATH, ("//a[contains(@class,'inStockCard')]//div/h3[contains(@class,'gUjFDF')]"))
-   return titles
+open_americanas_site()
+search_iphone()
 
-def returnPrices():
-    prices = driver.find_elements(By.XPATH, ("//a[contains(@class,'inStockCard')]//div/span[contains(@class,'liXDNM')]"))
-    return prices
+titles = driver.find_elements(By.XPATH, ("//a[contains(@class,'inStockCard')]//div/h3[contains(@class,'gUjFDF')]"))
 
-openAmericanasSite()
-searchIphone()
-titles = returnTitles()
-prices = returnPrices()
+def return_titles(position):   
+   return titles[position].text
 
-for title in titles:
-    print(title.text)
-    
-for price in prices:
-    print(price.text)
+prices = driver.find_elements(By.XPATH, ("//a[contains(@class,'inStockCard')]//div/span[contains(@class,'liXDNM')]"))
+def return_prices(position):    
+    return prices[position].text
+
+index = 0
+
+while(index <= 23):
+   print("Título: " + return_titles(index))
+   print("Preco: " + return_prices(index))
+   print()
+   index = index + 1
+
+   
+
+
+
+
 
 # findProductInformation()
