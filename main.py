@@ -21,11 +21,11 @@ open_americanas_site()
 search_iphone()
 
 titles = driver.find_elements(By.XPATH, ("//a[contains(@class,'inStockCard')]//div/h3[contains(@class,'gUjFDF')]"))
+prices = driver.find_elements(By.XPATH, ("//a[contains(@class,'inStockCard')]//div/span[contains(@class,'liXDNM')]"))
 
 def return_titles(position):   
    return titles[position].text
 
-prices = driver.find_elements(By.XPATH, ("//a[contains(@class,'inStockCard')]//div/span[contains(@class,'liXDNM')]"))
 def return_prices(position):    
     return prices[position].text
 
@@ -36,11 +36,3 @@ while(index <= 23):
    print("Preco: " + return_prices(index))
    print()
    index = index + 1
-
-   
-
-
-
-
-
-# findProductInformation()
