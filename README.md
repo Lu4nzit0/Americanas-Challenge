@@ -57,4 +57,13 @@ and
 <br>
   </p>
  </li>
+ </li>
+ <li> 
+  <p dir="auto">
+   Run the main.py script:
+<br>
+<code>python main.py</code>
+<br>
+  </p>
+ </li>
 </ol>
