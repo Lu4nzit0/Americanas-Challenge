@@ -1,8 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+import pandas as pd
 import os
-import time
-import csv
 
 os.system("TASKKILL /f /IM CHROME.EXE")
 
@@ -20,27 +19,35 @@ def search_iphone():
 open_americanas_site()
 search_iphone()
 
-titles = driver.find_elements(By.XPATH, ("//a[contains(@class,'inStockCard')]//div/h3[contains(@class,'gUjFDF')]"))
+title_element = driver.find_elements(By.XPATH, ("//a[contains(@class,'inStockCard')]//div/h3[contains(@class,'gUjFDF')]"))
 
-def return_titles(position):   
-   return titles[position].text
+def return_title_element(position):
+    title = title_element[position].text
+    titles.append(title)
+    return title
 
-prices = driver.find_elements(By.XPATH, ("//a[contains(@class,'inStockCard')]//div/span[contains(@class,'liXDNM')]"))
-def return_prices(position):    
-    return prices[position].text
+price_element = driver.find_elements(By.XPATH, ("//a[contains(@class,'inStockCard')]//div/span[contains(@class,'liXDNM')]"))
+
+def return_price_element(position): 
+    price = price_element[position].text
+    prices.append(price)
+    return price
+
+prices = []
+titles = []
 
 index = 0
 
 while(index <= 23):
-   print("Título: " + return_titles(index))
-   print("Preco: " + return_prices(index))
+   print("Título: " + return_title_element(index))
+   print("Preco: " + return_price_element(index))
    print()
-   index = index + 1
+   index = index + 1 
 
-   
+products = pd.DataFrame({'Titulo': titles, 'Preco': prices})
 
+print(products)
 
+products.to_excel('resultado.xlsx', index=False)
 
-
-
-# findProductInformation()
+driver.quit()
