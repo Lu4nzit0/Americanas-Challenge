@@ -44,6 +44,14 @@ and
 <br>
   </p>
  </li>
+ <li> 
+  <p dir="auto">
+   Install the requirements:
+<br>
+<code>pip -r requirements.txt</code>
+<br>
+  </p>
+ </li>
 </ol>
 
 
