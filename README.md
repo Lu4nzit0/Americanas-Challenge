@@ -60,9 +60,9 @@ and
  </li>
  <li> 
   <p dir="auto">
-   Run the main.py script:
+   Run the bot.py script:
 <br>
-<code>python main.py</code>
+<code>python bot.py</code>
 <br>
   </p>
  </li>
