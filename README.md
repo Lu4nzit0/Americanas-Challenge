@@ -43,7 +43,7 @@ and
  </li>
  <li> 
   <p dir="auto">
-   Navigate to the reporsitory folder:
+   Navigate to the repository folder:
 <br>
 <code>cd Iphone-Report</code>
 <br>
