@@ -53,7 +53,7 @@ and
   <p dir="auto">
    Install the requirements:
 <br>
-<code>pip -r requirements.txt</code>
+<code>pip install -r requirements.txt</code>
 <br>
   </p>
  </li>
