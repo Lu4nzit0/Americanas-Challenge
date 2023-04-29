@@ -12,12 +12,13 @@ def open_americanas_site():
     driver.get("https://www.americanas.com.br/")
 
 
-def search_iphone():
-    driver.find_element(By.XPATH, ("//input[@aria-label='Pesquisar']")).send_keys("iphone")
+def search_product():
+    product = str(input('Digite o nome produto: '))
+    driver.find_element(By.XPATH, ("//input[@aria-label='Pesquisar']")).send_keys(product)
     driver.find_element(By.XPATH, ("//button[@aria-label='pesquisar']")).click()
 
 open_americanas_site()
-search_iphone()
+search_product()
 
 title_element = driver.find_elements(By.XPATH, ("//a[contains(@class,'inStockCard')]//div/h3[contains(@class,'gUjFDF')]"))
 
@@ -38,7 +39,7 @@ titles = []
 
 index = 0
 
-while(index <= 23):
+while(index < len(title_element)):
    print("Título: " + return_title_element(index))
    print("Preco: " + return_price_element(index))
    print()
@@ -48,6 +49,8 @@ products = pd.DataFrame({'Titulo': titles, 'Preco': prices})
 
 print(products)
 
-products.to_excel('resultado.xlsx', index=False)
+products.to_excel('resultado.xlsx')
 
 driver.quit()
+
+print('\n''Relatório gerado com sucesso!')
