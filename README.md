@@ -37,7 +37,7 @@ and
   <p dir="auto">
    Open your terminal or command prompt and clone the repository:
 <br>
-<code>git clone https://github.com/Lu4nzit0/Iphone-Report</code>
+<code>git clone https://github.com/Lu4nzit0/Product-Report</code>
 <br>
   </p>
  </li>
@@ -45,7 +45,7 @@ and
   <p dir="auto">
    Navigate to the repository folder:
 <br>
-<code>cd Iphone-Report</code>
+<code>cd Product-Report</code>
 <br>
   </p>
  </li>
